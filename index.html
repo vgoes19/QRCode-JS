@@ -1,10 +1,6 @@
 <html>
     <head>
-        <style>
-            .marginTop50{
-                margin-top: 50px;
-            }
-        </style>
+        
         <meta charset="UTF-8">
         <title>Aplicação para leitura e geração de QRCode</title>
     </head>
@@ -14,12 +10,12 @@
             <div class="row">
                 <div class="col-md-6 form-group marginTop50" align="center">
                     
-                    <div class="row" style="margin-bottom: 50px;">
+                    <div class="row marginBottom50">
                         <div class="col-md-10">
                             <label for="linkQRCode">Link para geração de QRCode</label>
                             <input type="text" class="form-control text-center" id="linkQRCode">
                         </div>
-                        <div class="col-md-2" align="left" style="margin-top: 25px;">
+                        <div class="col-md-2 marginTop25" align="left">
                             <button type="button" onclick="geraQRCode()" class="btn btn-success">Gerar</button>
                         </div>
                     </div>
@@ -27,7 +23,7 @@
                     <div class="row">
                         <div id="qrcode"></div>
                     </div>
-                    
+                     
                 </div>
                 
                 <div class="col-md-6 form-group marginTop50" align="center">
@@ -37,14 +33,14 @@
                         <button type="button" onclick="lerQRCode()" class="btn btn-success">Iniciar</button>
                     </div>
                  
-                    <video id="webcam" style="width: 300px; height: 300px;"></video>  
+                    <video class="webVideo" id="webcam"></video>  
 
-                    <div class="row" id="divReturnScan" style="display: none;">
+                    <div class="row" id="divReturnScan">
                         <div class="col-md-8 col-md-offset-2">
                             <label for="linkQRCode">Scan de QRCode</label>
                             <input type="text" class="form-control text-center" id="scanQRCode" disabled>
                         </div>
-                        <div class="col-md-2" align="left" style="margin-top: 25px;">
+                        <div class="col-md-2 marginTop25" align="left">
                             <button type="button" class="btn btn-primary" id="btnAcessarQRCode">Acessar</button>
                         </div>
                     </div>       
@@ -56,37 +52,6 @@
     <script src="qrcode.min.js"></script>
     <script src="instascan.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-
-    <script>
-
-        function geraQRCode(){
-            document.getElementById('qrcode').innerHTML = ''
-            var link = document.getElementById('linkQRCode').value;
-            new QRCode(document.getElementById('qrcode'), {
-                text: link,
-                width: 250,
-                height: 250 
-            });
-        }
-
-        function lerQRCode(){
-            let scanner = new Instascan.Scanner({ video: document.getElementById('webcam') });
-            Instascan.Camera.getCameras().then(cameras => {
-                scanner.camera = cameras[0];
-                scanner.start();
-            }).catch(e => console.error(e));
-
-            scanner.addListener('scan', content => {
-                document.getElementById('divReturnScan').style.display = 'block';
-                document.getElementById('scanQRCode').value = content;
-            });
-        }
-
-        document.getElementById('btnAcessarQRCode').addEventListener('click', function(){
-            link = document.getElementById('scanQRCode').value;
-            window.open(link);
-        })
-        
-    </script>
-
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <script type="text/javascript" src="script.js"></script>
 </html>

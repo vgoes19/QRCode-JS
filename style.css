@@ -1,0 +1,20 @@
+.marginTop50{
+    margin-top: 50px;
+}
+
+.marginTop25{
+    margin-top: 25px;
+}
+
+.marginBottom50 { 
+    margin-bottom: 50px;
+}
+
+.webVideo {
+    width: 300px; 
+    height: 300px;
+}
+
+#divReturnScan{
+    display: none;
+}
