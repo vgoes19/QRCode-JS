@@ -1,6 +1,6 @@
 # QRCode-JS
-Leitura e geração de QRCode com javascript
-<p>Veja com funciona:</p>
+Leitura e geração de QRCode com javascript <br>
+Veja com funciona:
 [![Assista o vídeo](https://i.imgur.com/nk6MA10.png)](https://youtu.be/WY8j6bBqpnw)
 
 Para usarmos a webcam como scanner, precisamos usar a aplicação em um http server
